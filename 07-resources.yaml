@@ -10,6 +10,6 @@ spec:
     requests:
       memory: "68Mi"
       cpu: "100m"
-    linits:
+    limits:
         memory: "128Mi"
         cpu: "150m"
