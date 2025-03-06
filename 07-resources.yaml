@@ -13,4 +13,3 @@ spec:
     linits:
         memory: "128Mi"
         cpu: "150m"
-        
