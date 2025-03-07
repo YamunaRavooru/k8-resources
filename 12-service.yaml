@@ -4,6 +4,10 @@ metadata:
   name: nginx
 spec:
   selector:
+    project: expense
+    environment: dev
+    component: backend
+    version: "1.0.0"  
   ports:
   - protocol: TCP
     port: 80 #service port
