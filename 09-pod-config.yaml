@@ -7,5 +7,7 @@ spec:
   - name: nginx
     image: nginx
     envFrom:
+    - name: trainer
+      value: "sivakumar"
     - configMapRef:
         name: configmap
