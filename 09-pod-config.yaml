@@ -6,8 +6,9 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    envFrom:
+    env:
     - name: trainer
       value: "sivakumar"
+    envFrom:
     - configMapRef:
         name: configmap
