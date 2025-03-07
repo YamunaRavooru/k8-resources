@@ -11,7 +11,7 @@ spec:
   ports:
   - protocol: TCP
     port: 80 #service port
-    targerport: 80
+    targetport: 80
 
     
 
@@ -26,7 +26,8 @@ metadata:
     project: expense
     environment: dev
     component: backend
-    version: "1.0.0"                  
+    version: "1.0.0"   
+spec:               
   containers:
   - name: nginx
     image: nginx
