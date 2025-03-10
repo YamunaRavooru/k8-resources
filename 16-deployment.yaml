@@ -30,7 +30,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata: 
-  name: nginx-lp
+  name: nginx
 spec:
   type: LoardBalancer
   selector:
