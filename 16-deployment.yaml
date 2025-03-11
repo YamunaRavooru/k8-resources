@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: yamuna151/deployment:2.1
+        image: yamuna151/deployment:2.2
         ports:
         - containerPort: 80
 ---
@@ -42,4 +42,3 @@ spec:
     port: 80 #service port
     targetPort: 80
     nodePort: 30007
- 
