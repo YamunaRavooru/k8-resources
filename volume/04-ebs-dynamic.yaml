@@ -1,24 +1,22 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ebs-static
+  name: ebs-dynamic
 spec:
-  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
-  # pv name
-  volumeName: ebs-static
+  storageClassName: "ebs-sc" # Empty string must be explicitly set otherwise default StorageClass will be set
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 20Gi
+      storage: 19Gi
 ---
 
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ebs-static
+  name: ebs-dynamic
   labels:
-    purpose: "ebs-static-demo"
+    purpose: "ebs-dynamic-demo"
 spec:
   nodeSelector:
     topology.kubernetes.io/zone: us-east-1d
@@ -31,17 +29,17 @@ spec:
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
-      claimName: ebs-static
+      claimName: ebs-dynamic
 
 ---
 kind: Service
 apiVersion: v1
 metadata: 
-  name: nginx-static
+  name: nginx-dynamic
 spec:
   type: LoadBalancer
   selector:
-    purpose: "ebs-static-demo"
+    purpose: "ebs-dynamic-demo"
   ports:
   - protocol: TCP
     port: 80 #service port
