@@ -5,6 +5,10 @@ metadata:
  namespace: expense
 spec:
   serviceAccount: expense-mysql-secret
+  initContainers:
+  - name: awscli
+    image: amazon/aws-cli
+    command: ['sh', '-c', 'aws secretsmanager get-secret-value --secret-id expense/mysql/creds --query SecretString --output text > /secrets/.env ']
   containers:
   #one pod can contains multiple containers
   - name: nginx
